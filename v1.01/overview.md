@@ -75,3 +75,7 @@ composto por:
 * Name
 * description
 * recursosList
+
+## lista descarte
+* ItemType 
+* Item ID
