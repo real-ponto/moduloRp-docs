@@ -38,10 +38,9 @@
 
 ## item:
 * numSerial **string**
-* mark **string**
 * lot **string**
 * status: **ENUM** [
-  stock,  
+  stock, 
   loanToEmployee, 
   test, 
   reserved, 
@@ -72,58 +71,53 @@
 
 # Relogios
 
+## group:
+* groupName **string**
+* description **string** 
+
 ## company:
-* Razao social **UNIQUE** 
-* Nome fantasia  
-* Cnpj **UNIQUE** 
-* has one => Endereço 
-* has one => Contato 
+* companyName **string** 
+* contractNumber **string**
+* cnpj **string** 
+* has one => adress 
+* has one => contact
 
-## Modulo:
-* Numero Serie **UNIQUE**
-* has One => chip **UNIQUE**
-* has many => relogios **UNIQUE**
-* has many => Estoque Itens
+## watch
+* numSerial **string**
+* port **string** 
+* model **string**
+* mark **string**
+* has one => adress
+* has one => contact
 
-## Relogio
-* Numero Serie **UNIQUE**
-* porta
-* modelo
-* marca
-* has one => Endereço
-* has one => ContatoID
+# Modulo
 
-## Modem
-* Numero Serie
-* Marca
-* Modelo
+## modulorp
+* numSerial **string**
+* has One  => chip 
+* has many => watch 
+* has many => item
 
-## TpLink
-* Numero Serie
-* versão
-
-## Fonte
-* Numero Serie
+# Usuarios
 
 ## user
-* username
-* email
+* username **string**
+* email **string**
 * has one => login
 
 ## login
-* login
-* password
+* password **string**
 * has many => session
 
 ## session
-* lastActivity
-* active
+* lastActivity **date**
+* active **boolean**
 
-## Roles
-* Name
-* description
-* recursosList
+## roles
+* Name **string**
+* description **string**
+* has many => resource
 
-## lista descarte
-* ItemType 
-* Item ID
+## resource
+* resource **string**
+* route **string**
